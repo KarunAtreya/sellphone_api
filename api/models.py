@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
-
+# Create your models here.
 
 class UserProfileManager(BaseUserManager):
     """Manager for UserProfile"""
@@ -38,7 +38,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
 
     objects = UserProfileManager()
 
-    USERNAME_FIELD = ['email']
+    USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']
 
     def get_full_name(self):
@@ -52,6 +52,4 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         """Return string representation of our user"""
         return self.email
-
-
         
